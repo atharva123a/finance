@@ -1,1 +1,46 @@
+{% extends "layout.html" %}
 
+{% block title %}
+    Portfolio
+{% endblock %}
+
+<!--We have to pass in the number of rows inside the data base of purchase with-->
+{% block main %}
+    <table class="table table-striped">
+        <caption>Shares Owned</caption>
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Name</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">Total</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% if purchased == True %}
+        <!--Return the stocks if they are purchased-->
+        {% set myList = rows %}
+        {% for row in myList %}
+        {% if row['shares'] > 0 %}
+            <tr>
+                <th scope="col">{{row['symbol']}}</td>
+                <td>{{row['name']}}</td>
+                <td >{{row['shares']}}</td>
+                <td id="price">{{row['price']}}</td>
+                <td>{{row['total']}}</td>
+            </tr>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+            <tr>
+            <th scope="col">CASH</td><td></td><td></td><td></td>
+            <td colspan="2">{{cash_left}}</td>
+            </tr>
+            <tr>
+                <th scope="col">TOTAL</td><td></td><td></td><td></td>
+                <td colspan="2">{{grand_total}}</td>
+            </tr>
+        </tbody>
+    </table>
+{% endblock %}

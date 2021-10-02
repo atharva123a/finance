@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Buy $tocks
+{% endblock %}
+
+{% block main %}
+    <form action="/buy", method="POST">
+        <div class="form-group">
+            <input id="symbol" autocomplete="off" name="symbol" type="text" placeholder="Symbol" class="form-control">
+        </div>
+        <div class="form-group">
+            <input id="shares" autofocus autocomplete="off" class="form-control" name="shares" placeholder="Shares" type="number" min=1>
+        </div>
+        <button id="submit" type="submit" class="btn btn-primary">Buy</button>
+    </form>
+
+<!--The following is script to disable the submit button, until user actually selects some stock and
+    until the user buys atleast 1 share!-->
+<script>
+
+        document.querySelector("#symbol").onkeyup = function() {
+        if (document.querySelector("#symbol").value === '') {
+            document.querySelector("#submit").disabled = true;
+        }
+        else {
+            document.querySelector("#submit").disabled = false;
+        }
+    }
+
+</script>
+{% endblock %}
+
+<!--Whatever you write inside of the block main, will only get executed!-->

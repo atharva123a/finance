@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History
+{% endblock %}
+{% block main %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Symbol</th>
+                <th scope="col">Shares</th>
+                <th scope="col">Price</th>
+                <th scope="col">Transacted</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% set myList = rows %}
+        {% for row in myList %}
+        <tr>
+            <td>{{row['symbol']}}</td>
+            <td>{{row['shares']}}</td>
+            <td>{{row['total']}}</td>
+            <td>{{row['time']}}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

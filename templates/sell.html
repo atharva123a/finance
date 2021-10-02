@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+<form action="/sell" method="POST">
+  <div class="form-group">
+    <label for="Selling Stocks">Select a Stock</label><br>
+    <select name="symbol" id="symbol">
+        <option value="default" selected>Selected</option>
+        {% set myList = symbols %}
+        {% for row in myList %}
+      <option>{{row['symbol']}}</option>
+        {% endfor %}
+    </select>
+    </div>
+
+    <div class="form-group">
+            <input id="shares" autofocus autocomplete="off" class="form-control" name="shares" placeholder="Shares" type="number" min=1>
+        </div>
+    </select>
+    </div>
+      <button id="submit" type="submit" class="btn btn-primary" disabled>Sell</button>
+    </form>
+  <script>
+    const button = document.querySelector("#submit");
+
+   document.querySelector("#symbol").onclick = function() {
+     if ((document.querySelector("#symbol").value != "default") && (document.querySelector("#shares").value > 0)) {
+       button.disabled = false;
+     }
+     else
+     {
+       button.disabled = true;
+     }
+   }
+  </script>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+<!--Form which prompts user to enter username and
+        a original and reconfirmation password!-->
+{% block main %}
+    <form action="\register" method="post" name="form">
+        <div class='form-group'>
+            <input type="text" class="form-control" autocomplete="off"name="username" placeholder="Name"><br>
+            <input data-toggle="tooltip" title="Password must atleast be 8 characters long"
+            type="password" class="form-control" name="password" placeholder="Enter Password"
+            onkeyup="check()"><br>
+            <input type="password" class = "form-control" name ="confirmation" placeholder="Re-enter Password"><br>
+        </div>
+        <button id="submit" type="submit" class="btn btn-primary">Register</button>
+    </form>
+    <!--<script>-->
+    <!--    function check()-->
+    <!--    {-->
+    <!--        var x = document.forms["form"]["password"].value;-->
+    <!--        if (isNaN(x)) {-->
+                <!--// The input does not have numbers:-->
+    <!--            alert("The password should have atleast 1 number!")-->
+    <!--        }-->
+    <!--    }-->
+    <!--</script>-->
+{% endblock %}

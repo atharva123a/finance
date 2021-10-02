@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+<!--Create a form that symbols to our API -->
+{% block alert %}
+    <div class="alert alert-danger border text-center" role="alert">
+            {{ get_flashed_messages() | join(" ") }}
+    </div>
+{% endblock %}
+{% block main %}
+    {% if method=="GET" %}
+
+        <form action="/quote" method="POST">
+            <input type="text" class="form-control" name="symbol" placeholder="Symbol" autocomplete="off"><br><br>
+            <button type="submit" class="btn btn-primary">Quote</button>
+        </form>
+
+    {% elif method=="POST" %}
+    <!--We have posted the result to our IEX API. No we try to display the result to our user!-->
+        <div class="alert alert-primary" role="alert">
+            The cost of one share of {{ name_of_company }} ({{ symbol }}) is {{ price }}.
+        </div>
+    {% endif %}
+{% endblock %}
