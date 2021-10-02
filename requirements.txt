@@ -1,0 +1,38 @@
+cs50
+Flask
+Flask-Session
+requests
+export API_KEY=pk_86ef88659d2f4bab81f3b10a49d08be0
+
+You can add a bunch of bootstap and even CSS to make you webpages, look attractive!
+
+We time returned from the datetime(now) function is Greenwich Meridian Time. To convert it to indian standard time, we need to add 5 hrs and 30 minutes to the time.
+
+We are storing the stock price for individual stocks and are not storing the total stock cost
+
+We have correctly implemented the quote and register routes. Now let's try to implement the buy route!
+
+CREATE TABLE purchases (id INT NOT NULL, 'purchase_id' INTEGER DEFAULT 1, 'symbol' STRING NOT NULL, 'name' STRING NOT NULL, 'price' INTEGER, 'time' DATETIME, shares INTEGER, total INTEGER, FOREIGN KEY (id) REFERENCES users(id))
+
+Display the most recent stocks owned on index!
+
+
+CREATE TABLE records ('id' INTEGER NOT NULL
+
+Instead of creating a new table, i could rather make use of functions such as SUM and GROUP By to solve this problem!
+
+Allow the user to sell a share where he atleast selects one share:
+
+Input autocomplete=off will not suggest the user to type in a particular symbol
+
+CREATE TABLE details ('user_id' INTEGER NOT NULL, 'purchase_id' INTEGER NOT NULL, 'time' DATETIME, 'shares' INTEGER NOT NULL, total INTEGER, FOREIGN KEY(user_id) REFERENCES users('user_id'), FOREIGN KEY(purchase_id) REFERENCES purchases('purchase_id'));
+
+Let's make sure that user's password is atleast 8 characters long and has atleast
+one number and one special character!
+
+FLASK IS COOL AF!! YOU CAN EVEN flash a message, meaning there is something called
+as flash here in flask that allows you to flash a certain message when the user
+submits the form or is redirected. This is so cool!
+
+Check if input is number or letter javascript
+ CtRl-.  shortcuts
